@@ -1,0 +1,13 @@
+#include<stdio.h>
+void main()
+{
+ int n,c=0, a[n];
+ scanf("%d",&n);
+ for(int i=0;i<n;i++)
+ fscanf(stdin,"%d",a[i]);
+ for(int i=0;i<n;i++)
+  for(int j=i+1;j<n;j++)
+   if(a[i]==a[j])
+     c++;
+  print("\n%d",c);
+}
