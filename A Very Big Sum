@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main()
+{
+    int n,i=0;
+    long int j=0; 
+    scanf("%d",&n);
+     int a[n];
+     for (;i<n;i++)
+     {
+     fscanf(stdin,"%d",&a[i]);
+     j+=a[i];
+     }
+     printf("%ld",j);
+     
+     
+}
