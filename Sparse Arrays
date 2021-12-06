@@ -1,0 +1,17 @@
+n=int(input())
+st=[]
+for i in range(0,n):
+    st.append(input())
+q=int(input())
+qu=[]
+for i in range(0,q):
+    qu.append(input())
+r=[]
+for i in qu:
+    c=0
+    for j in st:
+        if i==j:
+            c+=1
+    r.append(c)
+for i in r:
+    print(i)
