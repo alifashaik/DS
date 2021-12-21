@@ -96,9 +96,6 @@ node* addpoly(node *h1,node* h2,int si1,int si2)
                 r=r->next;
            }
            t2=t2->next;
-           if(t2==NULL){
-           r->next=t1;
-           break;}
         }
         else if(t1->expo>t2->expo)
         {
@@ -111,9 +108,6 @@ node* addpoly(node *h1,node* h2,int si1,int si2)
                 r=r->next;
            }
            t1=t1->next;
-           if(t1==NULL){
-           r->next=t2;
-           break;}
         }
         else
         {
@@ -125,14 +119,13 @@ node* addpoly(node *h1,node* h2,int si1,int si2)
             r->data=t1->data+t2->data;
             t1=t1->next;
             t2=t2->next;
-            if(t2==NULL){
+        }
+        if(t2==NULL){
            r->next=t1;
            break;}
            if(t1==NULL){
            r->next=t2;
            break;}
-        }
-        
     }
     return f;
 }
