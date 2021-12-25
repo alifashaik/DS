@@ -1,0 +1,11 @@
+void printLinkedList(SinglyLinkedListNode* head) {
+SinglyLinkedListNode* t;
+t=head;
+while(t)
+{
+    printf("%d\n",t->data);
+    if(t->next==NULL)
+    break;
+    t=t->next;
+}
+}
