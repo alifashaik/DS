@@ -1,0 +1,20 @@
+typedef struct SinglyLinkedListNode node;
+SinglyLinkedListNode* insertNodeAtHead(SinglyLinkedListNode* llist, int data) 
+{
+ node* n;
+
+
+
+    n=(node*)malloc(sizeof(node));
+  
+        n->data=data;
+        n->next=NULL;
+       if(llist==NULL)
+   llist=n;
+   else {
+   n->next=llist;
+   llist=n;
+   }
+
+return llist;
+}
