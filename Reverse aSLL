@@ -1,0 +1,14 @@
+typedef SinglyLinkedListNode node;
+SinglyLinkedListNode* reverse(SinglyLinkedListNode* llist)
+ {
+    node *p=llist,*pre=NULL,*n;
+    while(p)
+    {
+        n=p->next;
+        p->next=pre;
+       pre=p;
+        p=n;
+        
+    }
+return pre;
+}
