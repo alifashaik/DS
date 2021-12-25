@@ -1,0 +1,19 @@
+ typedef SinglyLinkedListNode node;
+int count(node * head)
+ {
+     int c=0;
+     node *temp=head;
+     while(temp!=NULL)
+     {
+         c++;
+         temp=temp->next;
+     }return c;
+ }
+int getNode(SinglyLinkedListNode* llist, int positionFromTail) {
+int c=count(llist);
+for(int i=1;i<c-positionFromTail;i++)
+{
+    llist=llist->next;
+}
+return llist->data;
+}
