@@ -1,0 +1,15 @@
+typedef SinglyLinkedListNode node;
+
+SinglyLinkedListNode* removeDuplicates(SinglyLinkedListNode* llist) {
+node* temp=llist;
+while(temp)
+{
+    if(temp->next!=NULL && temp->data==temp->next->data)
+    {
+        temp->next=temp->next->next;
+    }
+    else
+    temp=temp->next;
+}
+return llist;
+}
