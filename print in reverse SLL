@@ -1,0 +1,26 @@
+typedef SinglyLinkedListNode node;
+SinglyLinkedListNode* reverse(SinglyLinkedListNode* llist)
+ {
+    node *p=llist,*pre=NULL,*n;
+    while(p)
+    {
+        n=p->next;
+        p->next=pre;
+       pre=p;
+        p=n;
+        
+    }
+return pre;
+}
+void reversePrint(SinglyLinkedListNode* llist) 
+{
+if(llist)
+{
+    node *t=reverse(llist);
+while(t)
+{
+  printf("%d\n",t->data);
+   t=t->next;
+}
+}
+}
