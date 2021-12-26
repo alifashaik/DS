@@ -81,6 +81,14 @@ void display(node *first)
 }
 node* addpoly(node *h1,node* h2,int si1,int si2)
 {
+    if(h1==NULL && t2==NULL)
+    return NULL;
+    else if(h1==NULL)
+    return h2;
+    else if(h2==NULL)
+    return h1;
+    else
+    {
     node *t1=h1,*t2=h2,*r=NULL,*f;
     int s1=si1,s2=si2;
     for(int i=0;i<s1+s2;i++)
@@ -126,9 +134,10 @@ node* addpoly(node *h1,node* h2,int si1,int si2)
            if(t1==NULL){
            r->next=t2;
            break;}
+       
     }
     return f;
-}
+}}
 void main()
 {
     int s1,s2;
