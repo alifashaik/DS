@@ -1,0 +1,37 @@
+int listlength(SinglyLinkedListNode* head1)
+ {
+     SinglyLinkedListNode* t=head1;
+     int c=0;
+     while(t)
+     {
+         c++;
+         t=t->next;
+     }
+     return c;
+ }
+SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+SinglyLinkedListNode* t1=head1,*t2=head2,*t3=head1;
+int i,j,l,temp;
+while(t1->next!=NULL)
+{
+    t1=t1->next;
+}
+t1->next=t2;
+t3=head1;
+l=listlength(head1);
+for(i=0;i<l;i++)
+{
+    t3=head1;
+   for(j=0;j<l-i-1;j++)
+     {
+       if(t3->data>t3->next->data)
+       {
+       temp=t3->data;
+       t3->data=t3->next->data;
+       t3->next->data=temp;
+       }
+       t3=t3->next;
+   }
+}
+return head1;
+}
