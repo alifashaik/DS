@@ -1,0 +1,120 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct cl
+{
+    int data;
+    struct cl *next,*prev;
+};
+typedef struct cl node;
+node * creatcll(int n)
+{
+    int s=n;
+    node *temp,*f;
+    for(int i=0;i<s;i++)
+    {
+        node * n=(node*)malloc(sizeof(node));
+        printf("Enter the data");
+        scanf("%d",&n->data);
+        if(i==0)
+        {
+          f=n;
+          temp=n;
+          continue;
+        }
+        temp->next=n;
+        n->prev=temp;
+        temp=n;
+    }
+    temp->next=f;
+    f->prev=temp;
+    return f;
+    }
+void display(node *fi)
+{printf("\n%d",fi->data);
+    node *temp=fi->next;
+    while(temp->next!=fi)
+    {
+        printf(" %d ",temp->data);
+        temp=temp->next;
+    }
+     printf(" %d ",temp->data);
+}
+node* insert(node *f,int p,int data,int s)
+{
+    node *n=(node*)malloc(sizeof(node));
+    n->data=data;
+    if(p==1)
+    {
+        n->prev=f->prev;
+        n->next=f;
+        f->prev=n;
+        return n;
+    }
+    node *temp=f;
+    for(int i=2;i<=s;i++)
+    {
+        if(i==p)
+        {
+            n->next=temp->next;
+            temp->next=n;
+            n->prev=temp;
+            return f;
+        }
+        temp=temp->next;
+    }
+    if(p==s+1)
+    {
+        temp->next=n;
+        n->prev=temp;
+        n->next=f;
+        f->prev=n;
+        return f;
+    }
+    else
+    printf("Wrong position entered");
+}
+node* del(int p,int s,node *f)
+{
+    node *temp=f->next;
+    if(p==1)
+    {
+        temp->prev=f->prev;
+        f->prev->next=temp;
+       return temp;
+    }
+    for(int i=2;i<s;i++)
+    {
+        if(i==p)
+        {
+            temp->next->prev=temp->prev;
+            temp->prev->next=temp->next;
+            temp=temp->next;
+            return f;
+        }
+        temp=temp->next;
+    }
+    if(p==s)
+    {
+        temp->prev->next=NULL;
+        temp->prev=NULL;
+        return f;
+    }
+    else
+    printf("Wrong position entered");
+}
+void main()
+{
+    int n,p,data,s;
+    printf("Enter size of the list");
+    scanf("%d",&n);
+    node * f=creatcll(n);
+    display(f);
+    printf("\nEnter data and its position to be inserted");
+    scanf(" %d %d",&data,&p);
+    f=insert(f,p,data,n);
+    display(f);
+    printf("\nEnter position of node to be deleted");
+    scanf("%d",&s);
+    f=del(s,n,f);
+    display(f);
+}
