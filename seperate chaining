@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct h{
+   int data;
+   struct h *next;
+};
+typedef struct h h;
+void main()
+{
+    int size;
+    printf("enter no.of elements");
+    scanf("%d",&size);
+    h a[size];
+    for(int i=0;i<size;i++)
+    {
+        a[i].data=0;
+    }
+    for(int i=0;i<size;i++)
+    {
+        int t,c;
+        printf("enter the element");
+        scanf("%d",&t);
+        c=t%10;
+        if(a[c].data==0)
+        a[c].data=t;
+         else if(a[c].next==NULL)
+         {
+             h *n=(h*)malloc(sizeof(h));
+             n->data=t;
+            a[c].next=n;
+         }
+        else
+        {
+            h *n=(h*)malloc(sizeof(h));
+            n->data=t;
+            h *temp=&a[c];
+            while(temp->next)
+            temp=temp->next;
+            temp->next=n;
+        }
+    }
+    /*  for(int i=0;i<size;i++)
+    {
+        printf("\n%d",a[i].data);
+        if(a[i].next!=NULL)
+        {
+             h *temp=&a[i];
+             // printf(" %d",temp->data);
+             printf(" %d",temp->next->data);
+           /*while(temp->data)
+            {
+                printf(" %d",temp->next->data);
+            temp=temp->next;
+            }//printf(" %d",temp->data);
+        }
+    }*/
+}
