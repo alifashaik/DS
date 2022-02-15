@@ -1,0 +1,75 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+typedef struct node node;
+node* f=NULL,*r=NULL;
+ int isEmpty()
+{
+    if(f==NULL)
+    return 1;
+    return 0;
+}
+void insert(int x)
+{
+    node* n=(node*)malloc(sizeof(node));
+    n->data=x;
+    n->next==NULL;
+    if(isEmpty())
+        f=r=n;
+    else
+    {
+        r->next=n;
+        r=n;
+    }
+}
+int del()
+{
+    if(isEmpty()){
+    printf("Queue empty");
+    return -1;}
+    node* t=f;
+    int x=f->data;
+    f=f->next;
+    free(t);
+    return x;
+}
+void display()
+{
+    node* temp=f;
+    while(temp)
+    {
+        printf("%d ",temp->data);
+        temp=temp->next;
+    }
+}
+    void main()
+{
+    printf("\nenter ur choice\n 1.insert\n2.delete\n 3.display");
+    int c,d;
+    scanf("%d",&c);
+    while(c!=-1){
+    switch(c)
+    {
+        case 1:
+             printf("\nEnter a num to insert");
+             int x;
+             scanf("%d",&x);
+             insert(x);
+             break;
+        case 2:
+             d=del();
+             printf("\nDeleted num is :%d",d);
+             break;
+        case 3:
+             display();
+             break;
+        default:
+             printf("\nWrong choice");
+
+    }
+        printf("\nenter ur choice\n 1.insert\n2.delete\n 3.display");
+    scanf("%d",&c);
+    }}
