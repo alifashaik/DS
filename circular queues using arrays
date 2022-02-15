@@ -1,0 +1,82 @@
+#include<stdio.h>
+#define max 3
+int front=-1,rare=-1;
+int q[max];
+int isEmpty()
+{
+    if(front==-1&&rare==-1)
+    return 1;
+    return 0;
+}
+int isFull()
+{
+    if(front==(rare+1)%max)
+    return 1;
+    return 0;
+}
+void insert(int x)
+{
+    if(isEmpty())
+    front++;
+    else if(isFull())
+     printf("\nOverflow");
+        rare=(rare+1)%max;
+        q[rare]=x; 
+        printf("rare:%d",rare);
+        printf("front:%d",front);
+}
+int del()
+{
+    if(isEmpty()){
+    printf("\nQueue is empty!noting to delete");
+    return -1;}
+    int t=q[front];
+    if(front==rare)
+    front=rare=-1;
+    else
+    front=(front+1)%max;
+    printf("front:%d",front);
+    return t;
+}
+void display()
+{
+    if(isEmpty())
+    printf("\nQueue is empty! noting to print\n");
+    else{
+    int i=front;
+    while(i!=rare){
+    printf("%d ",q[i]);
+    i=(i+1)%max;}
+    printf("%d ",q[rare]);
+}}
+void main()
+{
+    printf("max:%d",max);
+    printf("\nenter ur choice\n 1.insert\n2.delete\n 3.display");
+    int c;
+    scanf("%d",&c);
+    int d;
+    while(c!=-1){
+    switch(c)
+    {
+        case 1:
+             printf("\nEnter a num to insert");
+             int x;
+             scanf("%d",&x);
+             insert(x);
+             break;
+        case 2:
+             d=del();
+             printf("\nDeleted num is :%d",d);
+             break;
+        case 3:
+             display();
+             break;
+        default:
+             printf("\nWrong choice");
+             
+    }
+        printf("\nenter ur choice\n 1.insert\n2.delete\n 3.display");
+    scanf("%d",&c);
+    }
+}
