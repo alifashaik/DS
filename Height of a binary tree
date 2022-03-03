@@ -1,0 +1,13 @@
+int getHeight(struct node* root) {
+    // Write your code here
+    int lh=0,rh=0;
+    if(root==NULL)
+    return -1;
+    lh=getHeight(root->left);
+    lh++;
+    rh=getHeight(root->right);
+    rh++;
+    if(lh>rh)
+    return lh;
+    return rh;
+}
